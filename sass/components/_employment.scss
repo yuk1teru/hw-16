@@ -1,0 +1,45 @@
+/* Чем мы занимаемся (Заголовок оформлен в начале) */
+.employment {
+  display: none;
+  @media screen and (min-width: 1200px) {
+    display: block;
+  }
+  margin-bottom: 94px;
+
+  &__project {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 70px;
+    padding-top: 27px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    color: $primary-white-color;
+    background-color: rgba(47, 48, 58, 0.8);
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    @extend %reset-ul;
+    display: flex;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__item + &__item {
+    margin-left: 30px;
+  }
+
+  &__image {
+    display: block;
+  }
+}

@@ -1,0 +1,223 @@
+/* Модальное окно */
+/* Фон Формы */
+.back-drop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Скрытие формы */
+.is-hidden {
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Кнопка закрытия формы */
+.form__close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+
+  position: absolute;
+  top: 17px;
+  right: 17px;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+.form__close-button a {
+  display: flex;
+}
+
+/* ФОРМА */
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 40px;
+  width: 450px;
+  height: 609px;
+  display: block;
+  @media screen and (min-width: 1200px) {
+    min-width: 528px;
+    min-height: 581px;
+  }
+
+  background-color: $primary-white-color;
+
+  /* Заголовок в форме */
+  &__call-back {
+    display: block;
+    margin-bottom: 30px;
+    @media screen and (max-width: 1199px) {
+      text-align: center;
+    }
+    color: $title-text-color;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.15;
+  }
+  &__label {
+    display: flex;
+    margin-bottom: 28px;
+    position: relative;
+    cursor: inherit;
+  }
+
+  &__icon {
+    top: 11px;
+    left: 16px;
+  }
+  &__input-label {
+    top: 12px;
+    left: 42px;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__item {
+    position: relative;
+  }
+  &__checkbox {
+    display: block;
+    margin-bottom: 30px;
+  }
+}
+
+.form__input:focus ~ .form__input-label,
+.form__input:not(:placeholder-shown) ~ .form__input-label {
+  transform: translate(-26px, -30px);
+}
+
+.form__input:focus ~ .form__icon,
+.form__input:focus ~ .form__input-label {
+  color: $accent-color;
+  fill: currentColor;
+}
+
+.form__icon,
+.form__input-label {
+  position: absolute;
+}
+
+.textarea__label,
+.form__input-label {
+  line-height: 1.17;
+  cursor: inherit;
+}
+
+.form__textarea,
+.form__input {
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  line-height: 1.17;
+}
+
+.textarea__label {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form__textarea:focus ~ .textarea__label,
+.form__textarea:not(:placeholder-shown) ~ .textarea__label {
+  transform: translateY(-30px);
+  color: $accent-color;
+}
+.form__textarea {
+  width: 100%;
+  min-height: 120px;
+
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  resize: none;
+  &:focus {
+    border: 1px solid $accent-color;
+    outline: none;
+  }
+}
+
+.checkbox {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  border: 2px solid $title-text-color;
+  border-radius: 2px;
+  @media screen and (min-width: 1200px) {
+    margin-left: 12px;
+  }
+  &__label {
+    font-size: 12px;
+    line-height: 1.16;
+  }
+  &__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  &__link {
+    text-decoration: underline;
+    color: $accent-color;
+    font-size: 12px;
+    line-height: 1.16;
+    @media screen and (min-width: 1200px) {
+      line-height: 1.71;
+    }
+
+    letter-spacing: inherit;
+  }
+}
+.checkbox__input:checked + .checkbox {
+  background-color: $accent-color;
+  background-image: url('../images/chek.svg');
+  background-size: contain;
+  background-origin: border-box;
+  border: 2px solid $accent-color;
+}
+.form__input {
+  height: 40px;
+  width: 100%;
+  padding: 12px 16px 12px 42px;
+  &:focus {
+    border: 1px solid $accent-color;
+    outline: none;
+  }
+}
+
+/* Кнопка отправки в форме */
+.form__button {
+  @extend %button;
+  display: block;
+  padding: 10px 55px;
+  margin: 0 auto;
+  border: none;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    background-color: $portfolio-border;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}

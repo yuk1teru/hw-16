@@ -1,0 +1,209 @@
+.header {
+  position: relative;
+  border-bottom: 1px solid #ececec;
+}
+.page-nav {
+  display: flex;
+
+  @media screen and(max-width:767px) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  @media screen and(max-width:1199px) {
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media screen and (min-width: 1200px) {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+// мобильное меню
+
+// кнопка бургер
+.menu-button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  //   иконка крест
+
+  &__icon-cross {
+    display: none;
+  }
+  &.open &__icon-cross {
+    display: block;
+  }
+  &.open &__icon-menu {
+    display: none;
+  }
+  @media screen and(min-width:768px) {
+    display: none;
+  }
+}
+
+.drop-menu {
+  @media screen and(max-width:767px) {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    background-color: $primary-white-color;
+  }
+
+  &.open {
+    display: block;
+  }
+  @media screen and(min-width:768px) {
+    display: flex;
+  }
+}
+// Навигация
+.site-nav {
+  @extend %reset-ul;
+  display: flex;
+  @media screen and(max-width:767px) {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &__item {
+    @media screen and(max-width:767px) {
+      margin-bottom: 40px;
+    }
+  }
+  &__item:last-child {
+    @media screen and(max-width:767px) {
+      margin-bottom: 0;
+    }
+  }
+  &__link {
+    display: inline-flex;
+
+    @media screen and(min-width:768px) {
+      padding-top: 32px;
+      padding-bottom: 28px;
+    }
+
+    color: $title-text-color;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.17;
+    @media screen and(min-width:768px) {
+      font-size: 14px;
+      line-height: 1.17;
+    }
+    @media screen and(min-width:1200px) {
+      line-height: 1.14;
+    }
+
+    letter-spacing: 0.02em;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+  }
+  &__link--current {
+    color: $accent-color;
+    position: relative;
+    padding-bottom: 8px;
+    @media screen and(min-width: 768px) {
+      padding-bottom: 28px;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      display: block;
+      height: 4px;
+      width: 100%;
+
+      background-color: $accent-color;
+
+      border-radius: 2px;
+    }
+  }
+}
+
+.site-nav__item + .site-nav__item {
+  @media screen and (min-width: 768px) {
+    margin-left: 50px;
+  }
+}
+
+.contact {
+  @extend %reset-ul;
+  display: flex;
+
+  @media screen and (max-width: 767px) {
+    padding-bottom: 60px;
+    align-items: center;
+  }
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+  }
+  @media screen and (min-width: 768px) and(max-width: 1199px) {
+    margin-left: 84px;
+  }
+
+  @media screen and (max-width: 1199px) {
+    flex-direction: column;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-left: 305px;
+    align-items: center;
+  }
+}
+
+.contact__icon {
+  fill: currentColor;
+  vertical-align: middle;
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+
+.contact__link {
+  color: $primary-text-color;
+
+  font-weight: 500;
+  @media screen and (max-width: 767px) {
+    font-size: 18px;
+    line-height: 1.17;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+  }
+  @media screen and (min-width: 1200px) {
+    font-size: 14px;
+    line-height: 1.14;
+  }
+
+  letter-spacing: 0.02em;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+  }
+}
+.contact__item:nth-child(2n) {
+  @media screen and (max-width: 767px) {
+    margin-top: 16px;
+  }
+}
+
+.contact__item + .contact__item {
+  @media screen and (min-width: 1200px) {
+    margin-left: 30px;
+  }
+}

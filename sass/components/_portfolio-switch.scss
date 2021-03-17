@@ -1,0 +1,49 @@
+.portfolio-projects {
+  @extend %reset-ul;
+  display: flex;
+
+  @media screen and (max-width: 767px) {
+    flex-wrap: wrap;
+    width: 400px;
+    padding-bottom: 40px;
+  }
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+    padding-bottom: 30px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 50px;
+  }
+
+  &__item + &__item {
+    margin-left: 8px;
+  }
+  &__item:nth-child(4) {
+    @media screen and (max-width: 767px) {
+      margin-left: 0px;
+    }
+  }
+
+  &__switch {
+    padding: 6px 22px;
+    margin-bottom: 15px;
+    background-color: $secondary-bg-color;
+    color: $title-text-color;
+    border-radius: 4px;
+    border: none;
+    letter-spacing: inherit;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.62;
+    &:hover,
+    &:focus {
+      color: $primary-white-color;
+      background-color: $accent-color;
+    }
+  }
+  &__switch--current {
+    background-color: $accent-color;
+    color: $primary-white-color;
+  }
+}

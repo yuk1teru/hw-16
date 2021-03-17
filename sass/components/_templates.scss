@@ -1,0 +1,51 @@
+/* Для заголовков Чем мы занимаемся 
+Наша команда Постоянные клиенты */
+
+.primary-title {
+  color: $title-text-color;
+
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.17;
+  @media screen and (min-width: 1200px) {
+    font-size: 36px;
+  }
+
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+// сброс отступов у списка
+%reset-ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+// общие стили кнопки
+%button {
+  display: inline-flex;
+  min-width: 200px;
+  justify-content: center;
+  cursor: pointer;
+  background-color: $accent-color;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  color: $primary-white-color;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+}
+// Общие стили для социальных сетей
+%social-item-templates {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  line-height: 0px;
+}
